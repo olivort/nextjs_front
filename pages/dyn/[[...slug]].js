@@ -1,6 +1,6 @@
 import ErrorPage from "next/error"
 import { getPageData, fetchAPI, getGlobalData } from "../../lib/api"
-//import Sections from "@/components/sections"
+import Sections from "../../components/sections"
 //import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
 import Layout from "../../components/layout"
@@ -29,6 +29,7 @@ const DynamicPage = ({ sections, metadata, global, pageContext }) => {
       </h1>
       <p>This is dynamic: {pageContext.slug}</p>
       {/* Display content sections */}
+      <Sections sections={sections} />
     </Layout>
   )
 }
