@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import Button from '../components/Button'
-import ClickCount from '../components/ClickCount'
-import styles from '../styles/home.module.css'
+//import styles from '../styles/home.module.css'
 import { getPageData, fetchAPI, getGlobalData } from "../lib/api";
 import Layout from "../components/layout";
 
@@ -16,14 +14,14 @@ function throwError() {
 function Home({ articles, categories, about }) {
  
   return (
-    <main className={styles.main}>
-      <h1>Fast Refresh Demo</h1>
+    <main>
+      <h1 class="text-3xl font-bold underline">Fast Refresh Demo</h1>
       <p>
         Fast Refresh is a Next.js feature that gives you instantaneous feedback
         on edits made to your React components, without ever losing component
         state.
       </p>
-      <hr className={styles.hr} />
+     
       <p>{about.attributes.title}</p>
 
     </main>

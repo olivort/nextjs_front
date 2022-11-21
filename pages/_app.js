@@ -1,7 +1,7 @@
 import App from "next/app";
 import Head from "next/head";
 import ErrorPage from "next/error"
-import '../global.css'
+import '../styles/globals.css'
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";

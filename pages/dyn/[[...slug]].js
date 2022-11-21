@@ -12,8 +12,24 @@ import Layout from "../../components/layout"
 const DynamicPage = ({ sections, metadata, global, pageContext }) => {
   const router = useRouter()
 
+  // Check if the required data was provided
+  if (!router.isFallback && !sections?.length) {
+    return <ErrorPage statusCode={404} />
+  }
+
+  // Loading screen (only possible in preview mode)
+  if (router.isFallback) {
+    return <div className="container">Loading...</div>
+  }
+
   return (
-     <p>This is dynamic: {pageContext.slug}</p>
+    <Layout global={global} pageContext={pageContext}>
+      <h1 className="text-3xl font-bold underline">
+         Hello world!
+      </h1>
+      <p>This is dynamic: {pageContext.slug}</p>
+      {/* Display content sections */}
+    </Layout>
   )
 }
 
