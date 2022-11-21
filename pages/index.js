@@ -2,6 +2,9 @@ import { useCallback, useEffect, useState } from 'react'
 import Button from '../components/Button'
 import ClickCount from '../components/ClickCount'
 import styles from '../styles/home.module.css'
+import { getPageData, fetchAPI, getGlobalData } from "../lib/api";
+import Layout from "../components/layout";
+
 
 function throwError() {
   console.log(
@@ -10,22 +13,8 @@ function throwError() {
   )
 }
 
-function Home() {
-  const [count, setCount] = useState(0)
-  const increment = useCallback(() => {
-    setCount((v) => v + 1)
-  }, [setCount])
-
-  useEffect(() => {
-    const r = setInterval(() => {
-      increment()
-    }, 1000)
-
-    return () => {
-      clearInterval(r)
-    }
-  }, [increment])
-
+function Home({ articles, categories, about }) {
+ 
   return (
     <main className={styles.main}>
       <h1>Fast Refresh Demo</h1>
@@ -35,37 +24,28 @@ function Home() {
         state.
       </p>
       <hr className={styles.hr} />
-      <div>
-        <p>
-          Auto incrementing value. The counter won't reset after edits or if
-          there are errors.
-        </p>
-        <p>Current value: {count}</p>
-      </div>
-      <hr className={styles.hr} />
-      <div>
-        <p>Component with state.</p>
-        <ClickCount />
-      </div>
-      <hr className={styles.hr} />
-      <div>
-        <p>
-          The button below will throw 2 errors. You'll see the error overlay to
-          let you know about the errors but it won't break the page or reset
-          your state.
-        </p>
-        <Button
-          onClick={(e) => {
-            setTimeout(() => document.parentNode(), 0)
-            throwError()
-          }}
-        >
-          Throw an Error
-        </Button>
-      </div>
-      <hr className={styles.hr} />
+      <p>{about.attributes.title}</p>
+
     </main>
   )
+}
+
+export async function getStaticProps(context) {
+  // Run API calls in parallel
+  const [articlesRes, categoriesRes, aboutRes] = await Promise.all([
+    fetchAPI("/articles", { populate: ["image", "category"] }),
+    fetchAPI("/categories", { populate: "*" }),
+    fetchAPI("/about", { populate: "*"  }),
+  ]);
+ 
+  return {
+    props: {
+      articles: articlesRes.data,
+      categories: categoriesRes.data,
+      about: aboutRes.data,
+    },
+    revalidate: 1,
+  };
 }
 
 export default Home
