@@ -1,9 +1,9 @@
 import ErrorPage from "next/error"
-import { getPageData, fetchAPI, getGlobalData } from "../../lib/api"
-import Sections from "../../components/sections"
+import { getPageData, fetchAPI, getGlobalData } from "../lib/api"
+import Sections from "../components/sections"
 //import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
-import Layout from "../../components/layout"
+import Layout from "../components/layout"
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
@@ -52,13 +52,13 @@ export async function getStaticPaths(context) {
     const { slug } = page.attributes
     // Decompose the slug that was saved in Strapi
     const slugArray = !slug ? false : slug.split("/")
-
     return {
       params: { slug: slugArray },
     }
   })
 
   return { paths, fallback: true }
+  
 }
 
 export async function getStaticProps(context) {

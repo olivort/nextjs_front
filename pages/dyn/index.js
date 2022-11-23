@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 //import styles from '../styles/home.module.css'
-import { getPageData, fetchAPI, getGlobalData } from "../lib/api";
-import Layout from "../components/layout";
+import { getPageData, fetchAPI, getGlobalData } from "../../lib/api";
+import Layout from "../../components/layout";
 
 
 function throwError() {
