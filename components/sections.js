@@ -23,7 +23,7 @@ const sectionComponents = {
 }
 
 // Display a section individually
-const Section = ({ sectionData }) => {
+const Section = ({ sectionData, pageContext }) => {
   // Prepare the component
   const SectionComponent = sectionComponents[sectionData.__typename]
 
@@ -32,7 +32,7 @@ const Section = ({ sectionData }) => {
   }
 
   // Display the section
-  return <SectionComponent data={sectionData} />
+  return <SectionComponent data={sectionData} pageContext={pageContext} />
 }
 
 // Display the list of sections

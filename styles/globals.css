@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --color-custom1: 255 115 179;
+    --color-custom2-h: 150;
+    --color-custom2-s: 84%;
+    --color-custom2-l: 29.4%;
+}

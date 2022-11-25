@@ -1,7 +1,7 @@
 import { MdCheckBox } from "react-icons/md"
 import classNames from "classnames"
 
-const Pricing = ({ data }) => {
+const Pricing = ({ data, pageContext }) => {
   return (
     <div className="container py-12">
       <h1 className="text-4xl text-center">{data.title}</h1>

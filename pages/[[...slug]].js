@@ -29,7 +29,7 @@ const DynamicPage = ({ sections, metadata, global, pageContext }) => {
       </h1>
       <p>This is dynamic: {pageContext.slug}</p>
       {/* Display content sections */}
-      <Sections sections={sections} />
+      <Sections sections={sections} pageContext={pageContext}/>
     </Layout>
   )
 }
@@ -76,10 +76,11 @@ export async function getStaticProps(context) {
   }
 
   // We have the required page data, pass it to the page component
-  const { contentSections, metadata, slug } = pageData.attributes
+  const { contentSections, metadata, slug, primaryColor } = pageData.attributes
 
   const pageContext = {
     slug,
+    primaryColor,
   }
 
   return {

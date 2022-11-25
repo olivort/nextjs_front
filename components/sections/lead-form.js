@@ -4,7 +4,7 @@ import * as yup from "yup"
 import { Formik, Form, Field } from "formik"
 import Button from "../elements/button"
 
-const LeadForm = ({ data }) => {
+const LeadForm = ({ data, pageContext }) => {
   const [loading, setLoading] = useState(false)
 
   const LeadSchema = yup.object().shape({

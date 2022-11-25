@@ -1,7 +1,7 @@
 import ButtonLink from "../elements/button-link"
 import { getButtonAppearance } from "../../lib/button"
 
-const BottomActions = ({ data }) => {
+const BottomActions = ({ data, pageContext }) => {
   return (
     <section className="bg-primary-800 py-20 text-center">
       <h2 className="title text-white mb-10">{data.title}</h2>

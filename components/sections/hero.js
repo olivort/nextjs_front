@@ -3,7 +3,7 @@ import { getButtonAppearance } from "../../lib/button"
 import ButtonLink from "../elements/button-link"
 import NextImage from "../elements/image"
 
-const Hero = ({ data }) => {
+const Hero = ({ data, pageContext }) => {
   return (
     <main className="container flex flex-col md:flex-row items-center justify-between py-12">
       {/* Left column for content */}

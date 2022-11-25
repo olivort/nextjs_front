@@ -3,7 +3,7 @@ import { useState } from "react"
 import NextImage from "../elements/image"
 import CustomLink from "../elements/custom-link"
 
-const TestimonialsGroup = ({ data }) => {
+const TestimonialsGroup = ({ data, pageContext }) => {
   // Only show one testimonial at a time
   const [selectedTestimonialIndex, setSelectedTestimonialIndex] = useState(0)
   const selectedTestimonial = data.testimonials[selectedTestimonialIndex]
