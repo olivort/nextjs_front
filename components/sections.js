@@ -36,7 +36,7 @@ const Section = ({ sectionData, pageContext }) => {
 }
 
 // Display the list of sections
-const Sections = ({ sections }) => {
+const Sections = ({ sections, pageContext }) => {
   return (
     <div className="flex flex-col">
       {/* Show the actual sections */}
@@ -44,6 +44,7 @@ const Sections = ({ sections }) => {
         <Section
           sectionData={section}
           key={`${section.__typename}${section.id}`}
+          pageContext={pageContext}
         />
       ))}
     </div>

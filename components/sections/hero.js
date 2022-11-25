@@ -4,6 +4,13 @@ import ButtonLink from "../elements/button-link"
 import NextImage from "../elements/image"
 
 const Hero = ({ data, pageContext }) => {
+
+  if(pageContext.primaryColor === null){
+    var myColor = "primary"
+  }else {
+    var myColor = pageContext.primaryColor.tailwindColor
+  }
+
   return (
     <main className="container flex flex-col md:flex-row items-center justify-between py-12">
       {/* Left column for content */}
@@ -21,6 +28,7 @@ const Hero = ({ data, pageContext }) => {
               button={button}
               appearance={getButtonAppearance(button.type, "light")}
               key={button.id}
+              color={myColor}
             />
           ))}
         </div>
