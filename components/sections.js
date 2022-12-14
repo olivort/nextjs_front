@@ -8,6 +8,7 @@ import TestimonialsGroup from "./sections/testimonials-group"
 import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
 import LeadForm from "./sections/lead-form"
+import GridMenu from "./sections/grid-menu"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -20,6 +21,7 @@ const sectionComponents = {
   ComponentSectionsRichText: RichText,
   ComponentSectionsPricing: Pricing,
   ComponentSectionsLeadForm: LeadForm,
+  ComponentSectionsGridMenu: GridMenu,
 }
 
 // Display a section individually
@@ -37,6 +39,7 @@ const Section = ({ sectionData, pageContext }) => {
 
 // Display the list of sections
 const Sections = ({ sections, pageContext }) => {
+  console.log(sections)
   return (
     <div className="flex flex-col">
       {/* Show the actual sections */}
