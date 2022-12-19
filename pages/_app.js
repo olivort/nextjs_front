@@ -8,6 +8,9 @@ import { getStrapiMedia } from "../lib/media";
 import { getGlobalData } from "../lib/api";
 
 
+import dynamic from "next/dynamic"
+const {} = dynamic(import("tw-elements"), { ssr: false });
+
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 

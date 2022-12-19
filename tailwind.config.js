@@ -38,6 +38,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     './app/**/*.{js,ts,jsx,tsx}',
+    './node_modules/tw-elements/dist/js/**/*.js',
   ],
   //!! to be deleted if no dynamic color from backend
   // variants to be adjusted to the used modifiers
@@ -80,5 +81,7 @@ module.exports = {
       xl: "1280px",
     },
   },
-  plugins: [],
+  plugins: [
+    require("tw-elements/dist/plugin")
+  ],
 }
