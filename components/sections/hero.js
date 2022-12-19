@@ -39,7 +39,7 @@ const Hero = ({ data, pageContext }) => {
       </div>
       {/* Right column for the image */}
       <div className="flex-shrink-0 w-full md:w-6/12 mt-6 md:mt-0">
-        <NextImage media={data.picture} />
+        <NextImage media={data.picture.data.attributes} />
       </div>
     </main>
   )
